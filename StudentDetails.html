@@ -118,16 +118,39 @@
                     <input type="text" class="form-control" id="floatingInput" placeholder="LastName">
                     <label for="floatingInput">LastName</label>
                   </div>
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" pattern="[0-9]{10}" id="floatingInput" placeholder="Mobile Number">
+                    <label for="floatingInput">Mobile Number</label>
+                  </div>
 
             <div class="form-floating mb-3">
                 <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
                 <label for="floatingInput">Email address</label>
               </div>
 
+
               <div class="form-floating">
                 <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
                 <label for="floatingPassword">Password</label>
               </div>	
+              <select class="form-select" aria-label="Default select example">
+                <option selected>Courses</option>
+                <option value="1">Python FullStack</option>
+                <option value="2">Java FullStack</option>
+                <option value="3">Devops</option>
+             </select>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" placeholder="College Name">
+                <label for="floatingInput">Name of the College</label>
+              </div>
+
+              <select class="form-select" aria-label="Default select example">
+                <option selected>Year of Passout</option>
+                <option value="2024">2024</option>
+                <option value="2023">2023</option>
+                <option value="2022">2022</option>
+                <option value="other">Other</option>
+             </select>
               <div class="col-12">
                 <button type="submit" class="btn btn-primary">Submit</button>
               </div>

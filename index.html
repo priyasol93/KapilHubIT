@@ -109,7 +109,7 @@
 					<i class='bx bxs-cloud-download' ></i>
 					<span class="text">Download PDF</span>
 				</a>
-			</div>
+			</div>	
 
 			<ul class="box-info">
                 <li>
@@ -205,5 +205,31 @@
 	
 
 	<script src="script.js"></script>
+	<script>
+		document.getElementById('studentForm').addEventListener('submit', function(event) {
+			event.preventDefault(); // Prevent form from reloading the page
+
+			// Get values from form inputs
+			const firstName = document.getElementById('firstName').value;
+			const lastName = document.getElementById('lastName').value;
+
+			// Add row to the table
+			const table = document.getElementById('enrollmentTable');
+			const newRow = document.createElement('tr');
+
+			// Create cells for student, date, and status
+			newRow.innerHTML = `
+				<td><p>${firstName} ${lastName}</p></td>
+				<td>${new Date().toLocaleDateString()}</td>
+				<td><span class="status pending">Pending</span></td>
+			`;
+
+			// Append the new row to the table body
+			table.appendChild(newRow);
+
+			// Reset the form
+			document.getElementById('studentForm').reset();
+		});
+	</script>
 </body>
 </html>
