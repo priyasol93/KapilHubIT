@@ -22,7 +22,33 @@ menuBar.addEventListener('click', function () {
 	sidebar.classList.toggle('hide');
 })
 
-
+// Wait for the document to fully load
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('discountForm');
+    const resultElement = document.getElementById('result');
+  
+    // Listen for form submission
+    form.addEventListener('submit', function (event) {
+      event.preventDefault(); // Prevent form from reloading the page
+  
+      // Get values from the form fields
+      const originalPrice = parseFloat(document.getElementById('originalPrice').value);
+      const discountPercentage = parseFloat(document.getElementById('discountPercentage').value);
+  
+      // Validate that inputs are positive numbers
+      if (isNaN(originalPrice) || isNaN(discountPercentage) || originalPrice <= 0 || discountPercentage < 0) {
+        resultElement.textContent = 'Invalid input!';
+        return;
+      }
+  
+      // Calculate the discounted price
+      const discountAmount = (originalPrice * discountPercentage) / 100;
+      const discountedPrice = originalPrice - discountAmount;
+  
+      // Update the result element
+      resultElement.textContent = discountedPrice.toFixed(2);
+    });
+  });
 
 
 

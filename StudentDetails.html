@@ -109,7 +109,7 @@
 			
 			</div>
      
-            <form action="" class="row gx-3 gy-2">
+            <form action="" class="row gx-3 gy-2" id="discountForm">
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="floatingInput" placeholder="FirstName">
                     <label for="floatingInput">FirstName</label>
@@ -156,6 +156,21 @@
                 <option value="other">4th year</option>
              </select>
              </div>
+             <div class="container mt-5">
+                
+               
+                <div class="form-floating mb-3">
+                    <label for="originalPrice">Original Price</label>
+                    <input type="number" class="form-control" id="originalPrice" placeholder="Enter original price">
+                  </div>
+                  <div class="form-floating mb-3">
+                    <label for="discountPercentage">Discount Percentage</label>
+                    <input type="number" class="form-control" id="discountPercentage" placeholder="Enter discount percentage">
+                  </div>
+                  <button type="submit" class="btn btn-primary">Calculate</button>
+                
+                <h3 class="mt-3">Discounted Price: <span id="result">0</span></h3>
+              </div>
               <div class="col-12">
                 <button type="submit" class="btn btn-primary">Submit</button>
               </div>
