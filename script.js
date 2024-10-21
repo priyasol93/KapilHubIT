@@ -22,7 +22,7 @@ menuBar.addEventListener('click', function () {
 	sidebar.classList.toggle('hide');
 })
 
-
+//Discount Caluculator
 document.getElementById("calculateBtn").addEventListener("click", function(event) {
     event.preventDefault(); // Prevent form submission
     
@@ -43,7 +43,30 @@ document.getElementById("calculateBtn").addEventListener("click", function(event
     }
 });
 
+//Login Form
+<script>
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+        event.preventDefault();
 
+        // Get form values
+        const email = document.getElementById("emailInput").value;
+        const employeeID = document.getElementById("employeeIDInput").value;
+        const role = document.getElementById("roleSelect").value;
+
+        // Simple validation check
+        if (!email || !employeeID || role === "Select Role") {
+            alert("Please fill out all fields correctly.");
+        } else {
+            console.log("Email:", email);
+            console.log("Employee ID:", employeeID);
+            console.log("Role:", role);
+            alert("Login successful for role: " + role);
+            
+            // Redirect to index.html upon successful login
+            window.location.href = 'index.html';
+        }
+    });
+</script>
 
 
 const searchButton = document.querySelector('#content nav form .form-input button');
