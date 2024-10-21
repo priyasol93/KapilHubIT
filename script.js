@@ -22,34 +22,26 @@ menuBar.addEventListener('click', function () {
 	sidebar.classList.toggle('hide');
 })
 
-// Wait for the document to fully load
-document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('discountForm');
-    const resultElement = document.getElementById('result');
-  
-    // Listen for form submission
-    form.addEventListener('submit', function (event) {
-      event.preventDefault(); // Prevent form from reloading the page
-  
-      // Get values from the form fields
-      const originalPrice = parseFloat(document.getElementById('originalPrice').value);
-      const discountPercentage = parseFloat(document.getElementById('discountPercentage').value);
-  
-      // Validate that inputs are positive numbers
-      if (isNaN(originalPrice) || isNaN(discountPercentage) || originalPrice <= 0 || discountPercentage < 0) {
-        resultElement.textContent = 'Invalid input!';
-        return;
-      }
-  
-      // Calculate the discounted price
-      const discountAmount = (originalPrice * discountPercentage) / 100;
-      const discountedPrice = originalPrice - discountAmount;
-  
-      // Update the result element
-      resultElement.textContent = discountedPrice.toFixed(2);
-    });
-  });
 
+document.getElementById("calculateBtn").addEventListener("click", function(event) {
+    event.preventDefault(); // Prevent form submission
+    
+    // Get the values from the input fields
+    let originalPrice = parseFloat(document.getElementById("originalPrice").value);
+    let bargainedPrice = parseFloat(document.getElementById("bargainedPrice").value);
+    
+    // Check if the values are valid
+    if (!isNaN(originalPrice) && !isNaN(bargainedPrice) && originalPrice > bargainedPrice) {
+        // Calculate the price deduction
+        let priceDeduction = originalPrice - bargainedPrice;
+        
+        // Display the price deduction amount
+        document.getElementById("result").textContent = priceDeduction.toFixed(0);
+    } else {
+        // Handle invalid input
+        document.getElementById("result").textContent = "Please enter valid numbers, and make sure the original price is greater than the bargained price.";
+    }
+});
 
 
 
@@ -62,8 +54,8 @@ searchButton.addEventListener('click', function (e) {
 	if(window.innerWidth < 576) {
 		e.preventDefault();
 		searchForm.classList.toggle('show');
+		searchButtonIcon.classList.replace('bx-search', 'bx-x');
 		if(searchForm.classList.contains('show')) {
-			searchButtonIcon.classList.replace('bx-search', 'bx-x');
 		} else {
 			searchButtonIcon.classList.replace('bx-x', 'bx-search');
 		}
