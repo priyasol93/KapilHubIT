@@ -44,7 +44,7 @@ document.getElementById("calculateBtn").addEventListener("click", function(event
 });
 
 //Login Form
-<script>
+
     document.getElementById("loginForm").addEventListener("submit", function(event) {
         event.preventDefault();
 
@@ -66,7 +66,9 @@ document.getElementById("calculateBtn").addEventListener("click", function(event
             window.location.href = 'index.html';
         }
     });
-</script>
+
+
+
 
 
 const searchButton = document.querySelector('#content nav form .form-input button');
